@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--erase view attr-->
+    <attr name="erasebackgroundcolor" format="color" />
+    <attr name="erasebackgroundpic" format="reference" />
+    <!--picture view -->
+    <attr name="pictureviewbackgroundcolor" format="color" />
+    <attr name="roundtype" format="enum">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <attr name="roundImageRadius" format="dimension" />
+    <attr name="roundRectRadius" format="dimension" />
+    <attr name="roundRectText" format="string"/>
+
+
+    <!--erase view styleable-->
+    <declare-styleable name="EraseView">
+        <attr name="erasebackgroundcolor" />
+    </declare-styleable>
+
+    <!--picture view styleable-->
+    <declare-styleable name="PictureView">
+        <attr name="pictureviewbackgroundcolor" />
+        <attr name="erasebackgroundpic" />
+        <attr name="roundImageRadius"/>
+        <attr name="roundRectRadius"/>
+        <attr name="roundtype" />
+    </declare-styleable>
+</resources>
