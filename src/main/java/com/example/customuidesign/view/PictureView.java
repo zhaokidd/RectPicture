@@ -11,6 +11,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -23,6 +25,15 @@ import com.example.customuidesign.R;
  */
 
 public class PictureView extends View {
+    /*
+    * bundle key
+    * */
+    private final static String STATE_TYPE = "type";
+
+    /*
+    * bundle key
+    * */
+
     /*round image type*/
     private final static int TYPE_CIRCLE = 0;
     /*round rect type*/
@@ -181,5 +192,26 @@ public class PictureView extends View {
         bitmapShader.setLocalMatrix(matrix);
         mPaint.setShader(bitmapShader);
 
+    }
+
+    /**
+     * save the view's state when accedent occurs
+     * */
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putInt(STATE_TYPE, avatorType);
+
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            this.avatorType = ((Bundle) state).getInt(STATE_TYPE);
+        } else {
+            super.onRestoreInstanceState(state);
+        }
     }
 }
